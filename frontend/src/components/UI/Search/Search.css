@@ -1,0 +1,49 @@
+.search{
+    margin-bottom: 20px;
+    min-width: 500px;
+}
+
+
+.search .card-body {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.input-wrapper{
+    width: 30%;
+}
+.search input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #1A2035;
+    border: none;
+    color: white;
+}
+
+.search label {
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-bottom: 8px;
+    color: #8d9498;
+    text-transform: uppercase;
+}
+
+.InputElement {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.InputElement:focus {
+    outline: none;
+    background-color: #ccc;
+}

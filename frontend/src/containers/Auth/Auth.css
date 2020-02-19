@@ -1,0 +1,18 @@
+.auth{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+.authentication-header{
+    color: white;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.authentication-error {
+    color: red;
+    text-align: center;
+}

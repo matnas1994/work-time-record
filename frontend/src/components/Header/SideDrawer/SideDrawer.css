@@ -1,0 +1,234 @@
+#sideDrawerToggler{
+    display: none;
+}
+
+.sideDrawer {
+    background: #1f283e;
+    width: 250px;
+    height: 100vh;
+    box-shadow: 0px 0px 5px #121727;
+    transition: width 1s;
+}
+
+/* poprawki */
+#sideDrawerToggler:checked + .sideDrawer{
+    width: 50px;
+}
+
+
+
+.sideDrawer__header {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+    box-shadow: 0px 0px 5px #121727;
+    padding: 10px;
+}
+
+
+.sideDrawer__logo {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 40%;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    transition: left 1s;
+}
+
+/* poprawki */
+#sideDrawerToggler:checked + .sideDrawer .sideDrawer__logo{
+    position: absolute;
+    left: -200px;
+} 
+
+
+
+.sideDrawer__logo svg{
+    color: white;
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* poprawki */
+#sideDrawerToggler:checked + .sideDrawer .nav-item__link svg{
+    z-index: 1;
+}
+
+/* poprawki */
+#sideDrawerToggler:checked + .sideDrawer .nav-item__link p{
+    left: -200px;
+}
+
+
+/* poprawki */
+#sideDrawerToggler:checked + .sideDrawer .nav-item__link .caret{
+    position: absolute;
+    left: -200px;
+}
+
+
+
+#sideDrawerToggler:checked + .sideDrawer .nav-submenu{
+    position: absolute;
+    left: -200px;
+}
+
+
+.sideDrawer__logo h1{
+    font-size: 25px;
+    color: white;
+}
+
+.sideDrawer-toggle{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.sideDrawer-toggle__icon{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 5px;
+    border-bottom: 2px solid white;
+    transform: translate( -50%, -50%);
+}
+
+#sideDrawerToggler:checked + .sideDrawer .sideDrawer-toggle__icon{
+    width: 7px;
+    height: 7px;
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.sideDrawer-toggle__icon::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 5px;
+    border-bottom: 2px solid white;
+    transform: translateY(8px);
+}
+
+#sideDrawerToggler:checked + .sideDrawer .sideDrawer-toggle__icon::before{
+    width: 7px;
+    height: 7px;
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(14px);
+}
+
+
+.sideDrawer-toggle__icon::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 5px;
+    border-bottom: 2px solid white;
+    transform: translateY(-12px);
+}
+
+#sideDrawerToggler:checked + .sideDrawer .sideDrawer-toggle__icon::after{
+    width: 7px;
+    height: 7px;
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-14px);
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'roboto';
+    font-weight: bold;
+    list-style: none;
+}
+
+.nav-item{
+    display: block;
+    position: relative;
+    color: #8d9498;
+    margin: 10px;
+    width: 90%;
+}
+
+.nav-item__link {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.nav-item__link:hover {
+    background: rgba(199, 199, 199, 0.2);
+}
+
+.nav-item__link svg{
+    margin-right: 15px;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.nav-item__link p{
+    display: inline-block;
+    position: absolute;
+    left: 45px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    transition: left 1s;
+    white-space: nowrap;
+}
+
+.caret {
+    display: inline-block;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    margin-left: 10px;
+    vertical-align: .255em;
+    border-top: .3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transform: translate(-15px, -50%);
+    transition: left 1s;
+}
+
+.nav-submenu{
+    display: flex;
+    position: relative;
+    left: 0;
+    flex-direction: column;
+    transition: left 1s;
+}
+
+.nav-submenu li{
+    position: relative;
+    margin-left: 50px;
+    margin-top: 20px;
+}

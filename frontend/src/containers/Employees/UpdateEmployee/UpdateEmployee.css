@@ -1,0 +1,9 @@
+.updateEmployee {
+    width: 500px;
+    margin: auto;
+}
+
+.updateEmployee  h2{
+    text-align: center;
+    color: white;
+}

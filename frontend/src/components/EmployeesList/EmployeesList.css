@@ -1,0 +1,30 @@
+.table {
+    width: 100%;
+    color: #8d9498;
+    font-size: 15px;
+    line-height: 70px;
+}
+
+.table-head{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.table-body tr:nth-of-type(odd) {
+    background: rgba(0,0,0,.05);
+}
+
+.table-paginator {
+    display: block;
+    text-align: center;
+}
+
+.table-info{
+    color: white;
+    margin: 20px;
+}
+
+.employeesList{
+    min-width: 500px;
+}

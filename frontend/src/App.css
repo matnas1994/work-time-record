@@ -1,0 +1,53 @@
+.App {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: 63px min-content;
+  grid-template-areas:
+    'menu header'
+    'menu main';
+  overflow: hidden;  
+}
+
+.center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+button:focus {outline:0;}
+
+.header { 
+  grid-area: header; 
+}
+
+.sideDrawer { 
+  grid-area: menu;
+}
+
+main { 
+  grid-area: main; 
+  padding: 20px;
+  overflow: auto;
+  height: calc(100vh - 63px);
+}
+
+main::-webkit-scrollbar {
+  width: 11px;
+}
+
+main {
+  scrollbar-width: thin;
+  scrollbar-color: #CFD8DC #90A4AE;
+  padding-bottom: 10px;
+}
+
+main::-webkit-scrollbar-track {
+  background: #CFD8DC;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: #90A4AE ;
+  border-radius: 6px;
+  border: 3px solid #CFD8DC;
+}

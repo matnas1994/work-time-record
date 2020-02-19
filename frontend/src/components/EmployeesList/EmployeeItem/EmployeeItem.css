@@ -1,0 +1,15 @@
+.employee-delete{
+    cursor: pointer;
+}
+
+.employee-edit a{
+    color: #8d9498;
+}
+
+.employee-edit a:hover{
+    color: green;
+}
+
+.employee-delete:hover{
+    color: red;
+}

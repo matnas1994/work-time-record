@@ -1,0 +1,25 @@
+.employee {
+    width: 400px;
+    margin: auto;
+    color: #8d9498;
+}
+
+.employee__image{
+    width: 100%;
+    margin: auto;
+}
+
+
+.employee-workTimeRecord{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.employee-workTimeRecord__btn-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.employee-credentials__link{
+    color: #8d9498;
+}

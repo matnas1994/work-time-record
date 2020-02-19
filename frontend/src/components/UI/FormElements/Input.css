@@ -1,0 +1,65 @@
+.form-control {
+    position: relative;
+    height: 40px;
+    margin: 40px auto;
+}
+
+.form-floating-label {
+    border-color: #ebedf2;
+}
+  
+  .form-control label,
+  .form-control input,
+  .form-control textarea {
+    background: transparent !important;
+  }
+  
+
+
+  .form-control label {
+    position: absolute;
+    color: white;
+    top: 0;
+    font-size: 1rem;
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
+  
+  .form-control input,
+  .form-control textarea {
+    position: absolute;
+    width: 100%;
+    font: inherit;
+    border: none;
+    border-bottom: 1px solid #ebedf2;
+    color: white;
+  }
+  
+  .form-control input:focus,
+  .form-control textarea:focus {
+    outline: none;
+    background: #ebebeb;
+    border-color: #510077;
+  }
+
+  .form-control input:focus + label, .form-control .filled  {
+      top:-20px;
+      font-size: 0.8rem;
+  }
+
+  .form-control--invalid label {
+    position: absolute;
+    color: red;
+  }
+
+  .form-control--invalid p {
+    position: absolute;
+    color: red;
+    bottom: -30px;
+  }
+  
+  .form-control--invalid input,
+  .form-control--invalid textarea {
+    border-color: red;
+    background: #ffd1d1;
+  }
