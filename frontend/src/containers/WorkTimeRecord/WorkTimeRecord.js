@@ -1,7 +1,6 @@
-import React, { useReducer } from "react";
-import { useParams } from "react-router-dom";
+import React, { useReducer, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import WorkTimeRecordCalender from "../../components/WorkTimeRecordCalender/WorkTimeRecordCalender";
-import { useEffect } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import moment from "moment";
 
@@ -61,6 +60,7 @@ const wortTimeRecordsReducer = (state, action) => {
 
 const WorkTimeRecord = props => {
   const { employeeId, date } = useParams();
+  const history = useHistory();
   const [isLoading, error, sendRequest] = useHttpClient();
   const daysInMoth = moment(date, "YYYY MM DD").daysInMonth();
   const days = [];
@@ -136,7 +136,7 @@ const WorkTimeRecord = props => {
   const saveHandler = async () => {
     try {
       console.log(workTimeRecords);
-      const response = await sendRequest(
+      await sendRequest(
         `http://localhost:5000/api/workTimeRecords`,
         "POST",
         {
@@ -145,8 +145,7 @@ const WorkTimeRecord = props => {
           days: workTimeRecords
         }
       );
-      console.log("response: ");
-      console.log(response);
+      history.push('/employees/'+employeeId);
     } catch (err) {
       console.log(err);
     }

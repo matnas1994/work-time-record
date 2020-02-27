@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Font
 } from "@react-pdf/renderer";
-
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import Button from '../components/UI/FormElements/Button';
 
 Font.registerHyphenationCallback(word => [word]);
 
@@ -64,8 +65,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const PdfWorkTimeRecords = props => {
-  console.log(props.workTimeRecords);
+const DocWorkTimeRecords = props => {
   if(!props.workTimeRecords){
     return;
   }
@@ -277,4 +277,21 @@ const PdfWorkTimeRecords = props => {
   );
 };
 
+
+const PdfWorkTimeRecords =  (props) => {
+  console.log('is render');
+  
+  return <PDFDownloadLink
+            document={<DocWorkTimeRecords workTimeRecords={props.workTimeRecords}/>}
+            fileName={`test`}
+            // fileName={`${loadedEmployee.name}_${loadedEmployee.surname}_${dateWorkTimeRecord.year}-${dateWorkTimeRecord.month}`}
+            >
+            {({ blob, url, loading, error }) => 
+                        loading ? "Loading document..." :  <Button>Pobierz PDF</Button>
+          } 
+  </PDFDownloadLink>
+}
+
 export default React.memo(PdfWorkTimeRecords);
+
+//export default React.memo(PdfWorkTimeRecords);

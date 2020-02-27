@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 
-import { PDFDownloadLink } from "@react-pdf/renderer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,6 +16,7 @@ import PdfWorkTimeRecords from "../../../pdf/WorkTimeRecords";
 
 
 import './Employee.css';
+
 
 const Employee = props => {
     const employeeId = useParams().employeeId;
@@ -66,14 +66,14 @@ const Employee = props => {
     if((error && error[1] !== 404) || !loadedEmployee){
         return (
             <Card className="employee">
-                {error? <h2>{error}</h2>:
+                {error ? <h2>{error}</h2>:
                     <h2>Nie znaleziono pracownika</h2>
                 }
             </Card>
         )
     }
 
-
+    const document = workTimeRecords?.days.length > 0 && !error? <PdfWorkTimeRecords workTimeRecords = {workTimeRecords}/>: null;
 
     return <Card className="employee">
         <img className="employee__image" src="https://img.icons8.com/clouds/2x/user.png" alt="employee"/>
@@ -91,18 +91,10 @@ const Employee = props => {
             {dateWorkTimeRecord &&
             <div className="employee-workTimeRecord__btn-wrapper">
                 {isLoading && <LoadingSpinner asOverlay/>}
+                {document}
                 {!isLoading && error ? 
                     <Button to={`/workTimeRecord/${employeeId}/${dateWorkTimeRecord.year}-${dateWorkTimeRecord.month}`}>Dodaj nową</Button>:
-                    !isLoading && 
                     <React.Fragment>
-                            {workTimeRecords?.days.length > 0 && <PDFDownloadLink
-                                document={<PdfWorkTimeRecords workTimeRecords = {workTimeRecords}/>}
-                                fileName={`${loadedEmployee.name}_${loadedEmployee.surname}_${dateWorkTimeRecord.year}-${dateWorkTimeRecord.month}`}
-                                >
-                                {({ blob, url, loading, error }) => 
-                                            loading ? "Loading document..." :  <Button>Pobierz PDF</Button>
-                            } 
-                         </PDFDownloadLink>}
                          <Button to={`/workTimeRecord/${employeeId}/${dateWorkTimeRecord.year}-${dateWorkTimeRecord.month}`}>Edytuj</Button>
                     </React.Fragment>
                 }

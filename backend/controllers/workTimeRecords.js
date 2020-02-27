@@ -29,8 +29,6 @@ const getWorkTimeRecords = async (req, res, next) => {
         return next(new HttpError('Could not find a work time records.', 404));
     } 
 
-    console.log(workTimeRecords);
-
     res.status(200).json({workTimeRecords: workTimeRecords.toObject({getters: true})}); 
 }
 

@@ -36,7 +36,7 @@ const getEmployee = async (req, res, next) => {
     try{
         employee = await Employee.findById(employeeId);
     }catch(err){
-        return next( new HttpError('Fetching places failed, please try again later.', 500));
+        return next( new HttpError('Fetching employee failed, please try again later.', 500));
     }
 
     if(!employee) {
